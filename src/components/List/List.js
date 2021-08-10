@@ -3,7 +3,6 @@ import {
   CircularProgress,
   Grid,
   Typography,
-  InputLabel,
   MenuItem,
   FormControl,
   Select,
@@ -30,11 +29,9 @@ const List = ({
     setElRefs(refs);
   }, [places]);
 
-  console.log({ childClicked });
-
   return (
     <div className={classes.container}>
-      <Typography variant="h4">
+      <Typography variant="h3">
         Restaurants, Hotels & Attractions around you
       </Typography>
       {isLoading ? (
@@ -45,7 +42,7 @@ const List = ({
       ) : (
         <>
           <FormControl className={classes.formControl}>
-            <InputLabel>Type</InputLabel>
+            <Typography variant="subtitle1">Type</Typography>
             <Select value={type} onChange={(e) => setType(e.target.value)}>
               <MenuItem value="restaurants">Restaurants</MenuItem>
               <MenuItem value="hotels">Hotels</MenuItem>
@@ -54,7 +51,7 @@ const List = ({
           </FormControl>
 
           <FormControl className={classes.formControl}>
-            <InputLabel>Rating</InputLabel>
+            <Typography variant="subtitle1">Rating</Typography>
             <Select value={rating} onChange={(e) => setRating(e.target.value)}>
               <MenuItem value={0}>All</MenuItem>
               <MenuItem value={3}>Above 3.0</MenuItem>
