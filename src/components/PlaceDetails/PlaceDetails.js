@@ -17,6 +17,7 @@ import useStyles from "./styles.js";
 const PlaceDetails = ({ place, selected, refProp }) => {
   const classes = useStyles();
 
+  // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 

@@ -15,7 +15,7 @@ const Map = ({
   weatherData,
 }) => {
   const classes = useStyles();
-  const isDesktop = useMediaQuery("(min-width:600px)"); // isDesktop is set to be false if min-with is larger than 600px
+  const isDesktop = useMediaQuery("(min-width:600px)"); // isDesktop is set to be false if min-width is larger than 600px
 
   return (
     <div className={classes.mapContainer}>
@@ -31,13 +31,10 @@ const Map = ({
           styles: mapStyles,
         }}
         onChange={(e) => {
-          console.log(e);
           setCoordinates({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
-        onChildClick={(child) => {
-          setChildClicked(child);
-        }}
+        onChildClick={(child) => setChildClicked(child)}
       >
         {places?.map((place, i) => (
           <div
@@ -46,7 +43,7 @@ const Map = ({
             lng={Number(place.longitude)}
             key={i}
           >
-            {isDesktop ? (
+            {!isDesktop ? (
               <LocationOnOutlinedIcon color="primary" fontSize="large" />
             ) : (
               <Paper elevation={3} className={classes.paper}>
@@ -61,7 +58,7 @@ const Map = ({
                   className={classes.pointer}
                   src={
                     place.photo
-                      ? place.photo.image.large.url
+                      ? place.photo.images.large.url
                       : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
                   }
                   alt={place.name}

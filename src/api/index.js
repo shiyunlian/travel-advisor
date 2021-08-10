@@ -3,6 +3,7 @@ import axios from "axios";
 // use Travel Advisor API from Rapit API website
 // https://rapidapi.com/apidojo/api/travel-advisor/
 export const getPlacesData = async (type, sw, ne) => {
+  // deconstruct response.data: {data}, since the json data body consists of data, deconstruct data again
   try {
     const {
       data: { data },
