@@ -4,6 +4,8 @@ import { AppBar, Toolbar, Typography, Box, InputBase } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import useStyles from "./styles";
 
+// React Google Maps Api Style Guide: https://react-google-maps-api-docs.netlify.app/
+
 const Header = ({ setCoordinates }) => {
   const classes = useStyles();
   const [autocomplete, setAutocomplete] = useState(null);
