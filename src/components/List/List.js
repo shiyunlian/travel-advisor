@@ -31,8 +31,8 @@ const List = ({
 
   return (
     <div className={classes.container}>
-      <Typography variant="h3">
-        Restaurants, Hotels & Attractions around you
+      <Typography variant="h4">
+        Restaurants, Hotels & Attractions near you
       </Typography>
       {isLoading ? (
         <div className={classes.loading}>
