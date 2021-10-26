@@ -6,6 +6,8 @@ import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles";
 import mapStyles from "./mapStyles";
 
+// Google-map-react guide: https://www.npmjs.com/package/google-map-react
+
 const Map = ({
   setCoordinates,
   setBounds,
@@ -30,9 +32,30 @@ const Map = ({
           zoomControl: true,
           styles: mapStyles,
         }}
-        onChange={(e) => {
-          setCoordinates({ lat: e.center.lat, lng: e.center.lng });
-          setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
+        onChange={(event) => {
+          // console.log(e);
+          // from developer tools:
+          // bounds:
+          // ne: {lat: 37.3122561550864, lng: -122.03394670849418}
+          // nw: {lat: 37.3122561550864, lng: -122.03514029150581}
+          // se: {lat: 37.31121724132446, lng: -122.03394670849418}
+          // sw: {lat: 37.31121724132446, lng: -122.03514029150581}
+          // [[Prototype]]: Object
+          // center:
+          // lat: 37.311736700000026
+          // lng: -122.0345435
+          // [[Prototype]]: Object
+          // marginBounds:
+          // ne: {lat: 37.31220282310734, lng: -122.03401376371956}
+          // nw: {lat: 37.31220282310734, lng: -122.03507323628044}
+          // se: {lat: 37.31127057400268, lng: -122.03401376371956}
+          // sw: {lat: 37.31127057400268, lng: -122.03507323628044}
+          // [[Prototype]]: Object
+          // size: {width: 890, height: 974}
+          // zoom: 20
+          // [[Prototype]]: Object
+          setCoordinates({ lat: event.center.lat, lng: event.center.lng });
+          setBounds({ ne: event.marginBounds.ne, sw: event.marginBounds.sw });
         }}
         onChildClick={(child) => setChildClicked(child)}
       >
