@@ -15,6 +15,7 @@ import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles.js";
 
 const PlaceDetails = ({ place, selected, refProp }) => {
+  //console.log(place);
   const classes = useStyles();
 
   // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
@@ -56,7 +57,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         </Box>
         {place?.awards?.map((award) => (
           <Box
-            my={1}
+            my={1} // m stands for margin, y stands for y axis
             display="flex"
             justifyContent="space-between"
             alignItems="center"
