@@ -12,6 +12,7 @@ const Header = ({ setCoordinates }) => {
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
+  // https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
   const onPlaceChanged = () => {
     const lat = autocomplete.getPlace().geometry.location.lat();
     const lng = autocomplete.getPlace().geometry.location.lng();

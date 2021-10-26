@@ -33,7 +33,7 @@ const Map = ({
           styles: mapStyles,
         }}
         onChange={(event) => {
-          // console.log(e);
+          // console.log(event);
           // from developer tools:
           // bounds:
           // ne: {lat: 37.3122561550864, lng: -122.03394670849418}

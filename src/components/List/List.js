@@ -22,6 +22,8 @@ const List = ({
   const classes = useStyles();
   const [elRefs, setElRefs] = useState([]);
 
+  console.log({ childClicked });
+
   useEffect(() => {
     const refs = Array(places?.length)
       .fill()

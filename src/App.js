@@ -16,7 +16,8 @@ const App = () => {
   const [rating, setRating] = useState("");
   const [weatherData, setWeatherData] = useState([]);
 
-  // happens only at the app starts
+  // use useEffect to call the functions inside a functional component
+  // if the dependency array is empty, the codes at the function block happens only when the app starts
   // geolocation api: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API
   // useEffect(() => {
   //   navigator.geolocation.getCurrentPosition(
@@ -26,6 +27,7 @@ const App = () => {
   //   );
   // }, []);
 
+  // get user current location when the app starts
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCoordinates({
