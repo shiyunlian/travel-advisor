@@ -68,8 +68,13 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             </Typography>
           </Box>
         ))}
-        {place?.cuisine?.map(({ name }) => (
-          <Chip key={name} size="small" label={name} className={classes.chip} />
+        {place?.cuisine?.map((cuisine) => (
+          <Chip
+            key={cuisine.name}
+            size="small"
+            label={cuisine.name}
+            className={classes.chip}
+          />
         ))}
         {place?.address && (
           <Typography
