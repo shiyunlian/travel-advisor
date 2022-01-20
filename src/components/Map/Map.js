@@ -17,7 +17,8 @@ const Map = ({
   weatherData,
 }) => {
   const classes = useStyles();
-  const isDesktop = useMediaQuery("(min-width:600px)"); // isDesktop is set to be false if min-width is larger than 600px
+  // isDesktop is set to be false if min-width is larger than 600px
+  const isDesktop = useMediaQuery("(min-width:600px)");
 
   return (
     <div className={classes.mapContainer}>
@@ -62,12 +63,12 @@ const Map = ({
         {places?.map((place, i) => (
           <div
             className={classes.markerContainer}
-            lat={Number(place.latitude)}
+            lat={Number(place.latitude)} // convert string to number
             lng={Number(place.longitude)}
             key={i}
           >
             {!isDesktop ? (
-              <LocationOnOutlinedIcon color="primary" fontSize="large" />
+              <LocationOnOutlinedIcon color="primary" fontSize="large" /> //if !isDesktop, that is mobile view, show icon only, otherwise, show a paper content
             ) : (
               <Paper elevation={3} className={classes.paper}>
                 <Typography
